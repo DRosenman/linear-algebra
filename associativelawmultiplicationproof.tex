@@ -1,0 +1,66 @@
+\documentclass[]{article}
+
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{lipsum}
+
+\title{Intuitive "Proof" Of The Associative Law of Matrix Multiplication}
+\author{Dave Rosenman}
+\date{}
+
+\usepackage{titling}
+\setlength{\droptitle}{-1.8in}
+\begin{document}
+\maketitle
+Letting A be a $m \times n$ matrix, it follows that B must have n rows. So letting B be a $n \times p$ matrix, (AB) will be an $m \times p$ matrix. For (AB)C to be allowed, C must have p rows, so let C be a $p\times r$ matrix.
+
+
+C is a $p\times r$ matrix, B must have $p$ columns. So (again) letting B be an $n \times p$ matrix, BC will be an $n \times p$ matrix. For A(BC) to be allowed A must have n columns. So (again) letting A be an $m \times n$ matrix, A(BC) will be an $m \times p$ matrix.
+
+For (AB)C and A(BC) to have the same shape, A must have the same number of columns as B has rows, and C must have the same number of rows as B has columns. When this is the case it will be true (as shown below) that $A(BC) = (AB)C$. \textbf{ All we have to do is} prove that an arbitrary column of (AB)C will be equal to the same arbitrary column in A(BC) (I'll call this column the jth column of both matrices.)
+
+
+$$\text{Notation: } K_i \text{ represents the ith column of the matrix } K.$$
+
+\[B = \left[ {\begin{array}{*{20}{c}}
+	{{B_1}}& \cdots &{B{_p}}
+	\end{array}} \right]\]
+\[C = \left[ {\begin{array}{*{20}{c}}
+	{{c_{11}}}& \cdots &{{c_{1j}}}& \cdots &{{c_{1r}}}\\
+	\vdots & \vdots & \vdots & \cdots & \vdots \\
+	{\underbrace {{c_{p1}}}_{{C_1}}}& \vdots &{\underbrace {{c_{pj}}}_{{C_j}}}& \cdots &{\underbrace {{c_{pr}}}_{{C_R}}}
+	\end{array}} \right]\]
+\[AB = A\left[ {\begin{array}{*{20}{c}}
+	{{B_1}}& \cdots &{B{_p}}
+	\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
+	{A{B_1}}& \cdots &{AB{_p}}
+	\end{array}} \right]\]
+\[{\left( {BC} \right)_j} = B{C_j} = \left[ {\begin{array}{*{20}{c}}
+	{{B_1}}& \cdots &{B{_p}}
+	\end{array}} \right]\left[ {\begin{array}{*{20}{c}}
+	{{c_{1j}}}\\
+	\vdots \\
+	{{c_{pj}}}
+	\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
+	{{c_{1j}}{B_1}}& \cdots &{{c_{pj}}B{_p}}
+	\end{array}} \right]\]
+\[{\left( {\left( {AB} \right)C} \right)_j} = {\left( {AB} \right)_{{C_j}}} = AB\left[ {\begin{array}{*{20}{c}}
+	{{c_{1j}}}\\
+	\vdots \\
+	{{c_{pj}}}
+	\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
+	{A{B_1}}& \cdots &{AB{_p}}
+	\end{array}} \right]\left[ {\begin{array}{*{20}{c}}
+	{{c_{1j}}}\\
+	\vdots \\
+	{{c_{pj}}}
+	\end{array}} \right] = {c_{1j}}A{B_1} +  \cdots  + {c_{pj}}A{B_p}\]
+\[\begin{array}{l}
+{ \boxed{\left({A\left( {BC} \right)} \right)_j}} = A\left( {B{C_j}} \right) = A\left[ {\begin{array}{*{20}{c}}
+	{{c_{1j}}{B_1}}& \cdots &{{c_{pj}}B{_p}}
+	\end{array}} \right] = {c_{1j}}A{B_1} +  \cdots  + {c_{pj}}A{B_p} \boxed{= ((AB)C)_j}\\
+
+\end{array}\]
+\end{document}
